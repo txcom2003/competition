@@ -10,6 +10,10 @@ function regen($old_regen_time, $old_hp) {
     $regen_time = 60*45;
     $regen_amount = floor($time_length / $regen_time);
     $output['hp'] = $old_hp + $regen_amount;
+    if($output['hp'] > 100) {
+        $output['hp'] = 100;
+    }
+    
     $output['regen_time'] = $old_regen_time + ($regen_time*$regen_amount);
     
     return $output;
